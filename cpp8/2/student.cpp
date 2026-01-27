@@ -1,20 +1,22 @@
-#ifndef STUDENT_H
-#define STUDENT_H
-#include <string>
-#include <iostream>
-using namespace std;
+#include "student.h"
 
-class student{
-public:
-    string name ;
-    int eng;
-    int math;
-    int ave;
+void student::calc_ave()
+{
+    ave = (eng + math) / 2;
+}
 
-    void calc_ave();
-    int get_ave();
-    void set(string name, int eng, int math);
-    void print();
-};
+int  student::get_ave()
+{
+    return ave;
+}
 
-#endif
+void student::set(string name, int eng, int math){
+    student::name = name;
+    student::eng = eng;
+    student::math = math;
+    calc_ave();
+}
+
+void student::print(){
+    cout << name << " " << eng << " " << math << " " << ave << endl;
+}
